@@ -2,6 +2,7 @@
 
 $lastname = 'Torres';
 $name = 'Gustavo' . $lastname;
+$limintMonths = 12;
 //var_dump($name);
 
 
@@ -9,13 +10,33 @@ $jobs =[
  [
   'title' => 'PHP Developer',
   'description' => 'This is awesone Job Senior xd!!',
+  'visible' => true,
+  'months' => 6,
  ],
  [
   'title' => 'Python Dev',
+  'description' => 'This is awesone Job Junior',
+  'visible' => true,
+  'months' => 3,
  ],
  [
   'title' => 'Devops',
- ] 
+  'description' => 'This is awesone Job Practicante',
+  'visible' => false,
+  'months' => 1,
+ ],
+ [
+  'title' => 'Node Dev',
+  'description' => 'This is awesone Job Junior',
+  'visible' => true,
+  'months' => 5,
+ ],
+ [
+  'title' => 'Fronted Dev',
+  'description' => 'This is awesone Job Practicante',
+  'visible' => true,
+  'months' => 2,
+ ]  
 ];
 
 $var1 = 1;
@@ -81,39 +102,51 @@ if ($var1 > 2) {
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <?php
-            $idx = 0;
+            $totalMonths = 0;
+  // Do - While
+           /* $idx = 0;
              do {
-              echo '<h5><?php echo $jobs[0]['title']; ?></h5>';
-              echo '<p><?php echo $jobs[0]['description']; ?></p>';
+                echo '<li class = "work-position">';
+                echo '<h5>' . $jobs[$idx]['title'] .'</h5>';
+                echo '<p>' . $jobs[$idx]['description'] .'</p>';
+                echo '<strong>Achievements:</strong>';
+                echo '<ul>';
+                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '</ul>';
+                echo '</li>';
+
                $idx = $idx +1;
              } while ($idx < 3);
+*/
+          $idx = 0;
+            for ($idx=0; $idx < count($jobs); $idx++) { 
+             // $totalMonths = $totalMonths + $jobs[$idx]['months'];
+             $totalMonths += $jobs[$idx]['months'];
+            if ($totalMonths > $limintMonths) {
+              break;
+            }
 
+              if ($jobs[$idx]['visible'] == false) {
+                continue;
+              }
+              
+              echo '<li class = "work-position">';
+              echo '<h5>' . $jobs[$idx]['title'] .'</h5>';
+              echo '<p>' . $jobs[$idx]['description'] .'</p>';
+              echo '<p>' . $totalMonths .'</p>';
+              echo '<strong>Achievements:</strong>';
+              echo '<ul>';
+              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+              echo '</ul>';
+              echo '</li>';
 
-
-              ?>
-            <li class="work-position">
-
-
-            <li class="work-position">
-                <h5><?php echo $jobs[1]['title']; ?></h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
-                <strong>Achievements:</strong>
-                <ul>
-                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                </ul>
-              </li>
-              <li class="work-position">
-                  <h5><?php echo $jobs[2]['title']; ?></h5>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
-                  <strong>Achievements:</strong>
-                  <ul>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                  </ul>
-                </li>
+             }
+            ?>
+           
           </ul>
         </div>
         <div>
