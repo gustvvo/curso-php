@@ -2,6 +2,7 @@
 
 $lastname = 'Torres';
 $name = 'Gustavo' . $lastname;
+$limintMonths = 2400;
 //var_dump($name);
 
 
@@ -9,17 +10,34 @@ $jobs =[
  [
   'title' => 'PHP Developer',
   'description' => 'This is awesone Job Senior xd!!',
+  'visible' => true,
+  'months' => 16,
  ],
  [
   'title' => 'Python Dev',
   'description' => 'This is awesone Job Senior xd!!',
+  'visible' => true,
+  'months' => 14,
  ],
  [
   'title' => 'Devops',
   'description' => 'This is awesone Job Senior xd!!',
+  'visible' => false,
+  'months' => 5,
+ ],
+ [
+  'title' => 'Angular Dev',
+  'description' => 'This is awesone Job Senior xd!!',
+  'visible' => true,
+  'months' => 24,
+ ],
+ [
+  'title' => 'Frontend dev',
+  'description' => 'This is awesone Job Senior xd!!',
+  'visible' => true,
+  'months' => 13,
  ] 
 ];
-
 $var1 = 1;
 /*
 if ($var1 > 2) {
@@ -28,9 +46,45 @@ if ($var1 > 2) {
   echo 'no es mayor que 2';
 }
 */
-
 //$jobs[0][title];
 //var_dump($jobs);
+
+function getDuration($months){
+  $years =  floor($months / 12);
+  $extraMonths = $months % 12;
+   
+  if($years < 1){
+     return "$extraMonths months";
+   }elseif ($extraMonths < 1) {
+     return "$years years";
+   }else {
+    return "$years years $extraMonths months";
+   }
+
+
+}
+
+
+function printJob($job){
+  if ($job['visible'] == false) {
+    return;
+  }
+  //contenido de la funcion
+  echo '<li class = "work-position">';
+  echo '<h5>' . $job['title'] .'</h5>';
+  echo '<p>' . $job['description'] .'</p>';
+  echo '<p>' . getDuration($job['months']) .'</p>';
+  //echo '<p>' . $totalMonths .'</p>';
+  echo '<strong>Achievements:</strong>';
+  echo '<ul>';
+  echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+  echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+  echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+  echo '</ul>';
+  echo '</li>';
+}
+
+
 
 ?>
 
@@ -83,37 +137,40 @@ if ($var1 > 2) {
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <?php
-            /*$idx = 0;
+            $totalMonths = 0;
+  // Do - While
+           /* $idx = 0;
              do {
-              echo '<li class="work-position">';
-              echo '<h5>' .$jobs[$idx]['title'] .'</h5>';
-              echo '<p>' .$jobs[$idx]['description']. '</p>';
-              echo '<strong>Achievements:</strong>';
-              echo '<ul>';
-                  echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-                  echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-                  echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-                  echo '</ul>';
-                  echo '</li>';
-               
-              $idx = $idx +1;
-             } while($idx < 3);
-              */
-
-           for ($idx=0; $idx < count($jobs); $idx++) { 
-            echo '<li class="work-position">';
-            echo '<h5>' .$jobs[$idx]['title'] .'</h5>';
-            echo '<p>' .$jobs[$idx]['description']. '</p>';
-            echo '<strong>Achievements:</strong>';
-            echo '<ul>';
+                echo '<li class = "work-position">';
+                echo '<h5>' . $jobs[$idx]['title'] .'</h5>';
+                echo '<p>' . $jobs[$idx]['description'] .'</p>';
+                echo '<strong>Achievements:</strong>';
+                echo '<ul>';
                 echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
                 echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
                 echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
                 echo '</ul>';
                 echo '</li>';
-           }  
-              ?>
-            </ul>
+
+               $idx = $idx +1;
+             } while ($idx < 3);
+*/
+          $idx = 0;
+            for ($idx=0; $idx < count($jobs); $idx++) { 
+             // $totalMonths = $totalMonths + $jobs[$idx]['months'];
+             $totalMonths += $jobs[$idx]['months'];
+            
+
+              if ($jobs[$idx]['visible'] == false) {
+                continue;
+              }
+            printJob($jobs[$idx]);    
+          
+
+             }
+            ?>
+           
+          </ul>
         </div>
         <div>
             <h3 class="border-bottom-gray">Projects</h3>
