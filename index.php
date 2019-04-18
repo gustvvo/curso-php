@@ -2,43 +2,14 @@
 
 $lastname = 'Torres';
 $name = 'Gustavo' . $lastname;
+
+
 $limintMonths = 2400;
 //var_dump($name);
+include('jobs.php');
 
 
-$jobs =[
- [
-  'title' => 'PHP Developer',
-  'description' => 'This is awesone Job Senior xd!!',
-  'visible' => true,
-  'months' => 16,
- ],
- [
-  'title' => 'Python Dev',
-  'description' => 'This is awesone Job Senior xd!!',
-  'visible' => true,
-  'months' => 14,
- ],
- [
-  'title' => 'Devops',
-  'description' => 'This is awesone Job Senior xd!!',
-  'visible' => false,
-  'months' => 5,
- ],
- [
-  'title' => 'Angular Dev',
-  'description' => 'This is awesone Job Senior xd!!',
-  'visible' => true,
-  'months' => 24,
- ],
- [
-  'title' => 'Frontend dev',
-  'description' => 'This is awesone Job Senior xd!!',
-  'visible' => true,
-  'months' => 13,
- ] 
-];
-$var1 = 1;
+//$var1 = 1;
 /*
 if ($var1 > 2) {
   echo 'es mayor 2';
