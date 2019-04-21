@@ -1,12 +1,8 @@
 <?php
-
 $lastname = 'Torres';
 $name = 'Gustavo' . $lastname;
 $limintMonths = 2400;
-//var_dump($name);
 include('jobs.php');
-
-//$var1 = 1;
 /*
 if ($var1 > 2) {
   echo 'es mayor 2';
@@ -14,18 +10,13 @@ if ($var1 > 2) {
   echo 'no es mayor que 2';
 }
 */
-//$jobs[0][title];
-//var_dump($jobs);
 ?>
-
 <!doctype html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
     crossorigin="anonymous">
@@ -83,8 +74,8 @@ if ($var1 > 2) {
 
                $idx = $idx +1;
              } while ($idx < 3);
-*/
-          $idx = 0;
+              */
+            $idx = 0;
             for ($idx=0; $idx < count($jobs); $idx++) { 
              // $totalMonths = $totalMonths + $jobs[$idx]['months'];
              $totalMonths += $jobs[$idx]->months;
