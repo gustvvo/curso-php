@@ -1,43 +1,7 @@
 <?php
 
-class Job{
-    private $title;
-    public $description;
-    public $visible = true;
-    public $months;
-
-    public function __construct($title, $description){
-        $this->setTitle($title);
-        $this->description = $description;
-    }
-
-    public function setTitle($t){
-        if ($t == '') {
-            $this->title = 'N/A';
-        } else {
-            $this->title = $t;
-        } 
-    }
-
-    public function getTitle(){
-        return $this->title;
-    }
-
-    public function getDurationAsString(){
-        $years =  floor($this->months / 12);
-        $extraMonths = $this->months % 12;
-         
-        if($years < 1){
-           return "$extraMonths months";
-         }elseif ($extraMonths < 1) {
-           return "$years years";
-         }else {
-          return "$years years $extraMonths months";
-         }  
-      }
-}
-
-
+require 'app/Models/Job.php';
+require 'app/Models/Project.php';
 
 
 $job1 = new Job('PHP Developer','This is awesone Job Senior xd!!');
@@ -49,46 +13,19 @@ $job2->months = '24';
 $job3 = new Job('Devops','This is awesone Job Senior xd!!');
 $job3->months = '31';
 
-$jobs =[
-    $job1,
-    $job2,
-    $job3
-    /*[
-     'title' => 'PHP Developer',
-     'description' => 'This is awesone Job Senior xd!!',
-     'visible' => true,
-     'months' => 16,
-    ],
-    [
-     'title' => 'Python Dev',
-     'description' => 'This is awesone Job Senior xd!!',
-     'visible' => true,
-     'months' => 14,
-    ],
-    [
-     'title' => 'Devops',
-     'description' => 'This is awesone Job Senior xd!!',
-     'visible' => true,
-     'months' => 5,
-    ],
-    [
-     'title' => 'Angular Dev',
-     'description' => 'This is awesone Job Senior xd!!',
-     'visible' => true,
-     'months' => 24,
-    ],
-    [
-     'title' => 'Frontend dev',
-     'description' => 'This is awesone Job Senior xd!!',
-     'visible' => true,
-     'months' => 13,
-    ] */
+$project1 = new Project('Project 1','Description 1');
+
+$jobs = [
+          $job1,
+          $job2,
+          $job3
    ];
 
+   $projects = [
+      $project1
+   ];
 
-
-  
-  function printJob($job){
+  function printElement($job){
     if ($job->visible == false) {
       return;
     }

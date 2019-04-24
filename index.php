@@ -22,7 +22,7 @@ if ($var1 > 2) {
     crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 
-  <title>Resume</title>
+  <title>Resumen Experiencia</title>
 </head>
 
 <body>
@@ -35,10 +35,10 @@ if ($var1 > 2) {
         <h1><?php echo $name;?></h1>
         <h2>PHP Developer</h2>
         <ul>
-          <li>Mail: hector@mail.com</li>
+          <li>Mail: gustvvo@mail.com</li>
           <li>Phone: 1234567890</li>
           <li>LinkedIn: https://linkedin.com</li>
-          <li>Twitter: @hectorbenitez</li>
+          <li>Twitter: @gustxvou</li>
         </ul>
       </div>
     </div>
@@ -82,7 +82,7 @@ if ($var1 > 2) {
               if($totalMonths > $limintMonths) {
                 break;
               }
-              printJob($jobs[$idx]);    
+              printElement($jobs[$idx]);    
              }
             ?>
            
@@ -90,6 +90,14 @@ if ($var1 > 2) {
         </div>
         <div>
             <h3 class="border-bottom-gray">Projects</h3>
+            <ul>
+            <?php
+            for ($idx=0; $idx < count($projects); $idx++) { 
+              printElement($projects[$idx]);    
+             }
+            ?>
+           
+            </ul>
             <div class="project">
                 <h5>Project X</h5>
                 <div class="row">
@@ -147,7 +155,7 @@ if ($var1 > 2) {
     </div>
     <div id="resume-footer" class="row">
       <div class="col">
-          Designed by @hectorbenitez
+          Designed by @gustvvo
       </div>
     </div>
   </div>
